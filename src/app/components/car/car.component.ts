@@ -1,35 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Car } from 'src/app/models/car';
+import { HttpClient } from '@angular/common/http';
+import { CarResponseModel } from 'src/app/models/carResponseModel';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
-export class CarComponent {
-  car = {
-    carId: 1,
-    carBrand: 'Volkswagen',
-    carModel: 'Tiguan',
-    dailyPrice: 7500,
-  };
-  car2 = {
-    carId: 2,
-    carBrand: 'Volkswagen',
-    carModel: 'T-roc',
-    dailyPrice: 6500,
-  };
-  car3 = {
-    carId: 3,
-    carBrand: 'Volkswagen',
-    carModel: 'Passat',
-    dailyPrice: 10000,
-  };
-  car4 = {
-    carId: 4,
-    carBrand: 'Volkswagen',
-    carModel: 'Touareg',
-    dailyPrice: 30000,
-  };
+export class CarComponent implements OnInit {
+  cars: Car[] = [];
+  constructor(private httpClient: HttpClient) { }
+  apiUrl = "https://localhost:44387/api/cars/getall";
 
-  cars = [this.car, this.car2, this.car3, this.car4];
+  ngOnInit(): void {
+    this.getCars();
+  }
+
+  getCars() {
+    this.httpClient
+    .get<CarResponseModel>(this.apiUrl)
+    .subscribe((response) => {
+      this.cars=response.data
+    });
+  }
 }
