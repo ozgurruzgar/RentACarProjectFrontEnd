@@ -1,1 +1,16 @@
-<p>color works!</p>
+<div class="text-center text-bg-warning p-1">
+    <b>Renkler</b>
+  </div>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ColorId</th>
+      <th scope="col">ColorName</th>
+    </tr>
+  </thead>
+  <tbody >
+      <tr *ngFor="let color of colors">
+        <td>{{color.colorId}}</td>
+        <td>{{color.colorName}}</td>
+    </tr>
+  </table>
