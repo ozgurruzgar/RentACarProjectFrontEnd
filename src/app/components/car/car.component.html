@@ -1,26 +1,58 @@
-<div class="text-center text-bg-dark p-1">
-    <b>Araçlar</b>
+<!-- 
+  list-group-flush kenar listenin kenarlıklarını kaldırır.
+  margin kenar ayarlamaları için kullanılıyor.
+ -->
+
+<div class="row mt-4" style="margin-left: 1%">
+  <div
+    *ngFor="let car of carDetails"
+    class="card mt-2 mr-2"
+    style="width: 18rem; margin-right: 10px"
+  >
+    <img
+      *ngIf="car.imagePath"
+      [src]="baseUrl+car.imagePath"
+      class="card-img-top"
+      style="object-fit: cover"
+      width="100"
+      height="50%"
+    />
+
+    <img
+      *ngIf="!car.imagePath"
+      [src]="baseUrl+'default-car.jpg'"
+      class="card-img-top"
+      style="object-fit: cover"
+      width="100"
+      height="50%"
+    />
+
+    <div class="card-body">
+      <h4 class="cart-title">{{ car.brandName + " " + car.modelName }}</h4>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Model Yılı | {{ car.modelYear }}</li>
+      <li class="list-group-item">Marka | {{ car.brandName }}</li>
+      <li class="list-group-item">Renk | {{ car.colorName }}</li>
+      <li class="list-group-item">Açıklama | {{ car.description }}</li>
+      <li class="list-group-item">Günlük Fiyat:  {{ car.dailyPrice + " ₺" }}</li>
+      <li class="list-group-item">
+        Aylık %20 İndirimli Fiyat:  {{ car.dailyPrice * 30 * 0.8 + " ₺" }}
+      </li>
+    </ul>
+
+    <div class="card-body">
+      <div class="row">
+
+        <button
+          type="button"
+          class="btn btn-success"
+        >
+          Araç Detayı
+        </button>
+
+      </div>
+    </div>
+  </div>
 </div>
-<table class="table" >
-  <thead>
-    <tr>
-      <th scope="col">CarId</th>
-      <th scope="col">BrandId</th>
-      <th scope="col">ColorId</th>
-      <th scope="col">Model</th>
-      <th scope="col">ModelYear</th>
-      <th scope="col">Description</th>
-      <th scope="col">DailyPrice</th>
-    </tr>
-  </thead>
-  <tbody >
-    <tr *ngFor="let car of cars">
-        <td>{{car.carId}}</td>
-        <td>{{car.brandId}}</td>
-        <td>{{car.colorId}}</td>
-        <td>{{car.model}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.description}}</td>
-        <td>{{car.dailyPrice}}</td>
-    </tr>
-</table>
