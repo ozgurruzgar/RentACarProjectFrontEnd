@@ -32,13 +32,13 @@
     </div>
 
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Model Yılı | {{ car.modelYear }}</li>
-      <li class="list-group-item">Marka | {{ car.brandName }}</li>
-      <li class="list-group-item">Renk | {{ car.colorName }}</li>
-      <li class="list-group-item">Açıklama | {{ car.description }}</li>
-      <li class="list-group-item">Günlük Fiyat:  {{ car.dailyPrice + " ₺" }}</li>
+      <li class="list-group-item"><i><b>Model Yılı | </b></i>{{ car.modelYear }}</li>
+      <li class="list-group-item"><i><b>Marka | </b></i>{{ car.brandName }}</li>
+      <li class="list-group-item"><i><b>Renk | </b></i>{{ car.colorName }}</li>
+      <li class="list-group-item"><i><b>Açıklama | </b></i>{{ car.description }}</li>
+      <li class="list-group-item"><i><b>Günlük Fiyat:  </b></i>{{ car.dailyPrice + " ₺" }}</li>
       <li class="list-group-item">
-        Aylık %20 İndirimli Fiyat:  {{ car.dailyPrice * 30 * 0.8 + " ₺" }}
+       <i><b>Aylık %20 İndirimli Fiyat:  </b></i>{{ car.dailyPrice * 30 * 0.8 + " ₺" }}
       </li>
     </ul>
 
@@ -48,6 +48,7 @@
         <button
           type="button"
           class="btn btn-success"
+          routerLink="/cars/carDetail/{{car.carId}}"
         >
           Araç Detayı
         </button>

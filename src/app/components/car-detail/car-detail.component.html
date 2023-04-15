@@ -1,0 +1,55 @@
+<div class="row mt-1" style="margin-left: 25%">
+    <div
+      *ngFor="let car of carDetails"
+      class="card mt-2 mr-2"
+      style="width: 26rem; margin-right: 10px"
+    >
+      <img
+        *ngIf="car.imagePath"
+        [src]="baseUrl+car.imagePath"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="70%"
+      />
+  
+      <img
+        *ngIf="!car.imagePath"
+        [src]="baseUrl+'default-car.jpg'"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="50%"
+      />
+  
+      <div class="card-body text-center">
+        <h4 class="cart-title">{{ car.brandName + " " + car.modelName }}</h4>
+      </div>
+  
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item"><i><b>Model Yılı | </b></i>{{ car.modelYear }}</li>
+        <li class="list-group-item"><i><b>Marka | </b></i>{{ car.brandName }}</li>
+        <li class="list-group-item"><i><b>Renk | </b></i>{{ car.colorName }}</li>
+        <li class="list-group-item"><i><b>Açıklama | </b></i>{{ car.description }}</li>
+        <li class="list-group-item"><i><b>Günlük Fiyat:  </b></i>{{ car.dailyPrice + " ₺" }}</li>
+        <li class="list-group-item">
+         <i><b>Aylık %20 İndirimli Fiyat:  </b></i>{{ car.dailyPrice * 30 * 0.8 + " ₺" }}
+        </li>
+      </ul>
+  
+      <div class="card-body">
+        <div class="row">
+  
+          <button
+            type="button"
+            class="btn btn-success"
+            routerLink="/cars/carDetail/{{car.carId}}"
+          >
+           Aracı Kirala
+          </button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
