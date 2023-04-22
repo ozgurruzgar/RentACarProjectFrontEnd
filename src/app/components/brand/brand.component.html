@@ -2,8 +2,12 @@
   <b>Markalar</b>
 </div>
 <ul class="list-group">
+  <input class="form-control" [(ngModel)]="brandFilterText"
+  id="brandFilterText" type="text" 
+  placeholder="Marka İsmi Yazınız.">
   <li (click)="setCurrentBrand(brand)" 
   routerLink="/cars/brand/{{brand.brandId}}"
-  *ngFor="let brand of brands" 
+  *ngFor="let brand of brands | brandFilter:brandFilterText"
   [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
 </ul>
+

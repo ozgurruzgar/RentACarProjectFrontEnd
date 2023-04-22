@@ -2,7 +2,11 @@
     <b>Renkler</b>
   </div>
   <ul class="list-group">
-    <li *ngFor="let color of colors" 
+    <input class="form-control" 
+    [(ngModel)]="colorFilterText"
+    id="colorFilterText" type="text" 
+    placeholder="Renk İsmi Yazınız.">
+    <li *ngFor="let color of colors | colorFilter:colorFilterText" 
     routerLink="/cars/color/{{color.colorId}}"
     (click)="setCurrentColor(color)"
     [class]="getCurrentColorClass(color)">{{color.colorName}}</li>

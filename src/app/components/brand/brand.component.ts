@@ -11,6 +11,7 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
+  brandFilterText="";
   constructor(private brandService: BrandService,
     private activatedRoute:ActivatedRoute) {}
 

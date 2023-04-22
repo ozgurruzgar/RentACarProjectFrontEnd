@@ -2,10 +2,20 @@
   list-group-flush kenar listenin kenarlıklarını kaldırır.
   margin kenar ayarlamaları için kullanılıyor.
  -->
+ <form class="row g-6">
+  <div class="col-4">
+    <input id="carFilterText" 
+    [(ngModel)]="carFilterText"
+    class="form-control" 
+    type="text"
+    placeholder="Araç Ara">
+  </div>
+
+</form>
 
 <div class="row mt-4" style="margin-left: 1%">
-  <div
-    *ngFor="let car of carDetails"
+  <div 
+    *ngFor="let car of carDetails | carFilter:carFilterText"
     class="card mt-2 mr-2"
     style="width: 18rem; margin-right: 10px"
   >
