@@ -2,26 +2,47 @@
   list-group-flush kenar listenin kenarlıklarını kaldırır.
   margin kenar ayarlamaları için kullanılıyor.
  -->
- <form class="row g-6">
-  <div class="col-4">
-    <input id="carFilterText" 
-    [(ngModel)]="carFilterText"
-    class="form-control" 
-    type="text"
-    placeholder="Araç Ara">
+<div class="row">
+  <div class="col-md-2">
+    <select class="form-select" [(ngModel)]="branddFilter">
+      <option value="0" selected>Marka Seç</option>
+      <option [value]="brand.brandId" *ngFor="let brand of brands">
+        {{ brand.brandName }}
+      </option>
+    </select>
   </div>
-
-</form>
+  <div class="col-md-2">
+    <select class="form-select"  [(ngModel)]="colorrFilter">
+      <option value="0" selected>Renk Seç</option>
+      <option [value]="color.colorId" *ngFor="let color of colors">
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-2" class="d-grid gap-1 col-3 mx-4">
+    <button type="submit" class="btn btn-success btn-" routerLink="/cars/brand/{{branddFilter}}/color/{{colorrFilter}}"
+    style="width: 100%;">Filtrele
+    </button>
+  </div>
+  <input
+    class="form-control"
+    class="col-md-3"
+    [(ngModel)]="carFilterText"
+    id="carFilterText"
+    type="text"
+    placeholder="Arama ifadesi yazınız."
+  />
+</div>
 
 <div class="row mt-4" style="margin-left: 1%">
-  <div 
-    *ngFor="let car of carDetails | carFilter:carFilterText"
+  <div
+    *ngFor="let car of carDetails | carFilter : carFilterText"
     class="card mt-2 mr-2"
     style="width: 18rem; margin-right: 10px"
   >
     <img
       *ngIf="car.imagePath"
-      [src]="baseUrl+car.imagePath"
+      [src]="baseUrl + car.imagePath"
       class="card-img-top"
       style="object-fit: cover"
       width="100"
@@ -30,7 +51,7 @@
 
     <img
       *ngIf="!car.imagePath"
-      [src]="baseUrl+'default-car.jpg'"
+      [src]="baseUrl + 'default-car.jpg'"
       class="card-img-top"
       style="object-fit: cover"
       width="100"
@@ -42,27 +63,36 @@
     </div>
 
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><i><b>Model Yılı | </b></i>{{ car.modelYear }}</li>
-      <li class="list-group-item"><i><b>Marka | </b></i>{{ car.brandName }}</li>
-      <li class="list-group-item"><i><b>Renk | </b></i>{{ car.colorName }}</li>
-      <li class="list-group-item"><i><b>Açıklama | </b></i>{{ car.description }}</li>
-      <li class="list-group-item"><i><b>Günlük Fiyat:  </b></i>{{ car.dailyPrice + " ₺" }}</li>
       <li class="list-group-item">
-       <i><b>Aylık %20 İndirimli Fiyat:  </b></i>{{ car.dailyPrice * 30 * 0.8 + " ₺" }}
+        <i><b>Model Yılı | </b></i>{{ car.modelYear }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Marka | </b></i>{{ car.brandName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Renk | </b></i>{{ car.colorName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Açıklama | </b></i>{{ car.description }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Günlük Fiyat: </b></i>{{ car.dailyPrice + " ₺" }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Aylık %20 İndirimli Fiyat: </b></i
+        >{{ car.dailyPrice * 30 * 0.8 + " ₺" }}
       </li>
     </ul>
 
     <div class="card-body">
       <div class="row">
-
         <button
           type="button"
           class="btn btn-success"
-          routerLink="/cars/carDetail/{{car.carId}}"
+          routerLink="/cars/carDetail/{{ car.carId }}"
         >
           Araç Detayı
         </button>
-
       </div>
     </div>
   </div>

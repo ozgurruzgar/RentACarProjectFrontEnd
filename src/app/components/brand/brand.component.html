@@ -5,6 +5,7 @@
   <input class="form-control" [(ngModel)]="brandFilterText"
   id="brandFilterText" type="text" 
   placeholder="Marka İsmi Yazınız.">
+  
   <li (click)="setCurrentBrand(brand)" 
   routerLink="/cars/brand/{{brand.brandId}}"
   *ngFor="let brand of brands | brandFilter:brandFilterText"

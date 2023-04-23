@@ -5,7 +5,6 @@ import { Brand } from '../models/brand';
   name: 'brandFilter'
 })
 export class BrandFilterPipe implements PipeTransform {
-
   transform(value: Brand[], brandFilterText:string): Brand[] {
     brandFilterText = brandFilterText ? brandFilterText.toLocaleLowerCase() : "";
     return brandFilterText ? value.filter((b:Brand)=>b.brandName
