@@ -1,0 +1,69 @@
+<div class="card mt-3">
+    <div class="card-header">
+        Ödeme Sayfası
+    </div>
+    <div class="table">
+        <tr>
+            <th>Kiralanacak Gün Sayısı: </th>
+        </tr>
+        <tr>
+            <th>Ödenecek Tutar: </th>
+        </tr>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img [src]="baseUrl+'CreditCard.jpg'"
+            width="150%"
+            height="100%"
+            style="margin-left: 3%; margin-top: -3%;">
+        </div>
+        <div class="col-md-8" >
+            <div class="col-12 mt-3">       
+                <label for="creditCardHolder" style="text-align: center; margin-left: 25%;" class="form-label">Kart Sahibinin İsmi:</label>
+                <div class="input-group mb-3">
+                    <input type="text" style="margin-left: 25%;" class="form-control" placeholder="Özgür Rüzgar" id="creditCardHolder">
+                </div>
+            </div>
+            <label for="creditCardNumber" style="text-align: center; margin-left: 25%;" class="form-label">Kart Numarası: </label>
+            <div class="input-group mb-3">
+                <input 
+                class="form-control"
+                type="text"
+                placeholder="xxxx-xxxx-xxxx-xxxx"
+                style="text-align: left; margin-left: 25%;"
+                id="creditCardNumber"
+                maxlength="19"
+                >
+            </div>
+            <label for="ExpirationDate" style="text-align: center; margin-left: 25%;" class="form-label">Son Kullanma Tarihi: </label>
+            <div class="input-group mb-3">
+                <input 
+                class="form-control"
+                type="text"
+                placeholder="06-24"
+                style="text-align: left; margin-left: 25%;"
+                id="ExpirationDate"
+                maxlength="5"
+                >
+            </div>
+            <label for="SecurityCode" style="text-align: center; margin-left: 25%;" class="form-label">CVK: </label>
+            <div class="input-group mb-3">
+                <input 
+                class="form-control"
+                type="text"
+                placeholder="111"
+                style="text-align: left; margin-left: 25%;"
+                id="SecurityCode"
+                maxlength="3"
+                >
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                <button type="submit" (click)="rentACar()" class="btn btn-outline-success"  >Ödeme Yap </button> 
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+

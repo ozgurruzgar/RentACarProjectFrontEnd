@@ -1,0 +1,48 @@
+<div class="content">
+    <div clasS="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 style="text-align: center;">Araç Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <label for="BrandId">Marka:</label>
+                        <input type="number" id="BrandId" class="form-control"
+                        formControlName="BrandId" placeholder="Mercedes, BMW, Audi, ...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="colorId">Renk:</label>
+                        <input type="number" id="colorId" class="form-control"
+                        formControlName="colorId" placeholder="Yeşil, Mavi, Beyaz, ...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelYear">Model Yılı:</label>
+                        <input type="number" id="modelYear" class="form-control"
+                        formControlName="modelYear">
+                    </div>
+                    <div class="mb-3">
+                        <label for="model">Model:</label>
+                        <input type="text" id="model" class="form-control"
+                        formControlName="model" placeholder="Passat, A4, 520D, ..."> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Açıklama:</label>
+                        <input type="text" id="description" class="form-control"
+                        formControlName="description" placeholder="Araç Açıklaması"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="dailyPrice">Günlük Fiyat:</label>
+                        <input type="number" id="dailyPrice" class="form-control"
+                        formControlName="dailyPrice" placeholder="Günlük Kira Ücreti"> 
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-fill btn-success">
+                    Araç Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

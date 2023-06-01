@@ -1,0 +1,24 @@
+<div class="content">
+    <div clasS="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 style="text-align: center;">Renk Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="colorAddForm">
+                    <div class="mb-3">
+                        <label for="colorName">Marka İsmi:</label>
+                        <input type="text" id="colorName" class="form-control"
+                        formControlName="colorName" placeholder="Yeşil, Mavi, Beyaz, ...">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" (click)="addColor()" class="btn btn-fill btn-success">
+                    Renk Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,8 +1,14 @@
-<div class="row mt-1" style="margin-left: 25%">
+<div clasS="row">
+  <div class="col-md-3">
+  <app-brand></app-brand>
+  <app-color></app-color>
+</div>
+<div class="col-md-9">
+<div class="row mt-1" style="margin-left: 22%">
     <div
       *ngFor="let car of carDetails"
       class="card mt-2 mr-2"
-      style="width: 26rem; margin-right: 10px"
+      style="width: 38rem; margin-right: 10px"
     >
       <img
         *ngIf="car.imagePath"
@@ -43,7 +49,10 @@
           <button
             type="button"
             class="btn btn-success"
-            routerLink="/cars/carDetail/{{car.carId}}"
+            routerLink="/cars/payment/{{car.carId}}"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
           >
            Aracı Kirala
           </button>
@@ -52,4 +61,22 @@
       </div>
     </div>
   </div>
+  
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <app-rental-add></app-rental-add>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> 
   

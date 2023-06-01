@@ -1,0 +1,23 @@
+<div class="content">
+    <div clasS="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 style="text-align: center;">Marka Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="brandAddForm">
+                    <div class="mb-3">
+                        <label for="brandName">Marka İsmi:</label>
+                        <input type="text" id="brandName" class="form-control"
+                        formControlName="brandName" placeholder="Mercedes, BMW, Audi, ...">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" (click)="addBrand()" class="btn btn-fill btn-success">
+                    Marka Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
